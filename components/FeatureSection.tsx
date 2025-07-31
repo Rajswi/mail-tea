@@ -1,61 +1,65 @@
+import { FlaskConical, PanelTop } from "lucide-react";
+
 const FeatureSection = () => {
   return (
     <section className="py-32">
       <div className="container">
-        <div className="mx-auto mb-20 max-w-3xl text-center">
-          <h1 className="mb-6 text-4xl font-medium md:mb-11 md:text-7xl">
-            Let&apos;s Make Your Space Beautiful
-          </h1>
-          <p className="font-medium md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            nisi accusantium voluptate aspernatur minima.
+        <div className=" mb-20 max-w-3xl text-center md:text-left">
+          <p className="mb-6 text-5xl font-normal md:mb-11 md:text-6xl">
+           First-class <br/>
+developer experience
+          </p>
+          <p className="font-normal text-white/60 md:text-lg">
+           We are a team of engineers who love building tools for other engineers.<br/>
+Our goal is to create the email platform we've always wished we had — one that <span className="">just works</span>.
           </p>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-2">
-          <div className="order-1 flex h-full items-center rounded-lg bg-muted">
-            <img
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg"
-              alt="placeholder"
-              className="aspect-video w-full object-cover"
+        <div className="mx-auto grid gap-10 md:grid-cols-2">
+          <div className="relative order-1 overflow-hidden flex h-full items-center border-t  rounded-t-3xl  bg-muted">
+            <video
+              src="https://cdn.dribbble.com/userupload/7098494/file/large-91b6f2c9a2ddc203f8e763848bce7853.mp4"
+             autoPlay
+             loop
+             muted
+              className="w-full object-cover"
             />
+            <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-t from-background to-transparent"/>
           </div>
-          <div className="order-3 h-full rounded-lg bg-muted md:px-10 md:pt-10">
-            <img
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-2.svg"
-              alt="placeholder"
-              className="h-full rounded-t-lg object-cover"
+          <div className=" relative overflow-hidden order-3 h-full border-t  rounded-t-3xl   bg-muted md:px-10 md:pt-10">
+            <video
+              src="https://cdn.dribbble.com/userupload/18370191/file/original-fa956607b6cf10ec3f63d3133d5a181a.mp4"
+              autoPlay
+             loop
+             muted
+              className=" w-full rounded-t-lg object-cover scale-105"
             />
+            <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-t from-background to-transparent"/>
           </div>
-          <div className="order-2 -mt-6 max-w-[412px] md:order-3">
-            <p className="mb-6 text-sm text-muted-foreground md:mb-12">
-              Lorem ipsum dolor sit amet.
+          <div className="order-2 pt-0 max-w-[412px]   md:order-3">
+            <div className="md:ml-8 ">
+              <FlaskConical className="text-white/60" />
+            <p className="mb-2 text-2xl pt-3 font-normal md:mb-6">
+              Test Mode
             </p>
-            <h3 className="mb-3 text-2xl font-medium md:mb-6">
-              Perfect for Any Space
-            </h3>
-            <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+            <p className="mb-6 text-sm text-white/60">
+              Simulate events and experiment with our API <br/> without the risk of accidentally sending real <br/> emails to real people.
             </p>
-            <a href="#" className="font-medium hover:underline">
-              Learn how to get started
+            <a href="#" className="ont-normal text-white/80 hover:text-white/150">
+              Learn more
             </a>
+            </div>
+
           </div>
-          <div className="order-4 -mt-6 max-w-[412px] md:order-3">
-            <p className="mb-6 text-sm text-muted-foreground md:mb-12">
-              Lorem ipsum dolor sit amet.
+          <div className="order-4  max-w-[412px] md:order-3 pt-0 md:ml-8">
+            <PanelTop className="text-white/60" />
+            <p className="mb-2 pt-3  text-2xl font-normal md:mb-6">
+              Modular Webhooks
             </p>
-            <h3 className="mb-3 text-2xl font-medium md:mb-6">
-              Modern and Sleek Design
-            </h3>
-            <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+            <p className="mb-6  text-sm text-white/60">
+              Receive real-time notifications directly to your <br/>server. Every time an email is delivered, opened, <br/> bounces, or a link is clicked.
             </p>
-            <a href="#" className="font-medium hover:underline">
-              Learn to customize your space
+            <a href="#" className="font-normal text-white/80 hover:text-white/150">
+              Learn more
             </a>
           </div>
         </div>

@@ -2,21 +2,22 @@
 
 import {
   ArrowUpRight,
-  BarChart,
-  Bitcoin,
-  Building,
-  Building2,
+  Book,
+  Briefcase,
   ChevronLeft,
   ChevronRight,
-  Cloud,
-  Cpu,
-  Film,
-  Fingerprint,
-  GraduationCap,
-  HeartPulse,
-  Leaf,
-  Lock,
+  FileText,
+  GanttChartSquare,
+  HeartHandshake,
+  Mail,
   Menu,
+  MessageSquare,
+  Plus,
+  Rss,
+  Send,
+  Server,
+  Shield,
+  Users,
   X,
 } from "lucide-react";
 import { useState } from "react";
@@ -37,119 +38,58 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-const solutions = [
+const features = [
   {
-    title: "First solution",
-    description: "Vestibulum scelerisque quis nisl ut convallis.",
+    title: "Email API",
+    description: "The best API to reach humans instead of spam folders.",
     href: "#",
-    icon: Cloud,
+    icon: Send,
   },
   {
-    title: "Another solution",
-    description: "Curabitur vehicula malesuada enim a cursus.",
+    title: "SMTP Service",
+    description: "A classic way to send email from any application.",
     href: "#",
-    icon: Lock,
+    icon: Server,
   },
   {
-    title: "And a third solution",
-    description: "Proin aliquam feugiat lobortis.",
+   title: "Audiences",
+    description: "Manage all your contacts and build segments.",
     href: "#",
-    icon: Fingerprint,
-  },
-];
-
-const useCases = [
-  {
-    title: "Banking",
-    href: "#",
-    icon: Building2,
-  },
-  {
-    title: "Healthcare",
-    href: "#",
-    icon: HeartPulse,
-  },
-  {
-    title: "Technology",
-    href: "#",
-    icon: Cpu,
-  },
-  {
-    title: "Education",
-    href: "#",
-    icon: GraduationCap,
-  },
-  {
-    title: "Agriculture",
-    href: "#",
-    icon: Leaf,
-  },
-  {
-    title: "BaaS",
-    href: "#",
-    icon: Building,
-  },
-  {
-    title: "Entertainment",
-    href: "#",
-    icon: Film,
-  },
-  {
-    title: "SaaS",
-    href: "#",
-    icon: BarChart,
-  },
-  {
-    title: "Crypto",
-    href: "#",
-    icon: Bitcoin,
+    icon: Users,
   },
 ];
 
-const documentationLinks = [
-  {
-    title: "External link",
-    href: "#",
-  },
-  {
-    title: "External link",
-    href: "#",
-  },
-  {
-    title: "External link",
-    href: "#",
-  },
-  {
-    title: "External link",
-    href: "#",
-  },
+
+const companyLinks = [
+  { title: "About", href: "#" },
+  { title: "Blog", href: "#" },
+  { title: "Careers", href: "#" },
+  { title: "Customers", href: "#" },
 ];
 
 const resources = [
-  {
-    title: "Blog",
-    description: "Vivamus ut risus accumsan, tempus sapien eget.",
-    href: "#",
-  },
-  {
-    title: "Guides",
-    description: "In sapien tellus, sodales in pharetra a, mattis ac turpis.",
-    href: "#",
-  },
-  {
-    title: "News",
-    description: "Maecenas eget orci ac nulla tempor tincidunt.",
-    href: "#",
-  },
+  { title: "Changelog", href: "#" },
+  { title: "Enterprise", href: "#" },
+  { title: "Security", href: "#" },
+  { title: "SOC 2", href: "#" },
+  { title: "GDPR", href: "#" },
 ];
+
+const docsLinks = [
+  { title: "Getting Started", href: "#" },
+  { title: "API Reference", href: "#" },
+  { title: "Integrations", href: "#" },
+  { title: "Examples", href: "#" },
+  { title: "SDKs", href: "#" },
+]
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [submenu, setSubmenu] = useState<
-    "platform" | "usecases" | "developers" | "resources" | null
+    "features" | "companyLinks" | "developers" | "resources" | null
   >(null);
   return (
-    <section className="bg-background inset-x-0 top-0 z-20">
+    <section className=" max-w-6xl mx-auto fixed bg-background inset-x-0 top-0 z-20">
       <div className="container">
         <NavigationMenu className="min-w-full">
           <div className="flex w-full items-center justify-between gap-12 py-4">
@@ -157,17 +97,13 @@ const Navbar = () => {
             <div>
               {(!open || !submenu) && (
                 <>
-                  <Logo url="https://shadcnblocks.com">
-                    <LogoImageDesktop
-                      src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblocks-logo-word.svg"
+                  <Logo url="/">
+                    <img
+                      src="/mailTea-logo.png"
                       className="h-7"
                       alt="Shadcn UI Navbar"
                     />
-                    <LogoImageMobile
-                      src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblocks-logo.svg"
-                      className="h-7"
-                      alt="Shadcn UI Navbar"
-                    />
+                    <p>MailTea</p>
                   </Logo>
                 </>
               )}
@@ -181,7 +117,7 @@ const Navbar = () => {
 
             <NavigationMenuList className="hidden lg:flex">
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-white/70">Feature</NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-8 lg:p-12 2xl:min-w-[calc(1400px-4rem)]">
                   <div className="flex items-start justify-between gap-8 lg:gap-x-12">
                     <NavigationMenuLink
@@ -191,7 +127,7 @@ const Navbar = () => {
                       <div className="border-input bg-background overflow-clip rounded-lg border">
                         <div>
                           <img
-                            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                            src="/CodeSection2.png"
                             alt="Placeholder image"
                             className="h-[190px] w-[398px] object-cover object-center"
                           />
@@ -207,27 +143,27 @@ const Navbar = () => {
                       </div>
                     </NavigationMenuLink>
                     <div className="max-w-[760px] flex-1">
-                      <div className="text-muted-foreground mb-6 text-xs uppercase tracking-widest">
-                        Solutions
+                      <div className="text-white/70 mb-6 text-xs uppercase tracking-widest">
+                        Feature
                       </div>
                       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-                        {solutions.map((solution, index) => (
+                         {features.map((feature, index) => (
                           <NavigationMenuLink
                             key={index}
-                            href={solution.href}
+                            href={feature.href}
                             className="group block p-4"
                           >
                             <div className="mb-5 group-hover:opacity-60">
-                              <solution.icon
+                              <feature.icon
                                 className="size-5 text-black"
                                 strokeWidth={1.5}
                               />
                             </div>
                             <div className="mb-1 text-base">
-                              {solution.title}
+                              {feature.title}
                             </div>
                             <div className="text-muted-foreground text-sm font-normal">
-                              {solution.description}
+                              {feature.description}
                             </div>
                           </NavigationMenuLink>
                         ))}
@@ -237,27 +173,24 @@ const Navbar = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Use cases</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-white/70">Company</NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-8 lg:p-12 2xl:min-w-[calc(1400px-4rem)]">
                   <div className="flex justify-between gap-8 lg:gap-x-[52px]">
                     <div className="w-1/2 max-w-[510px]">
                       <div className="text-muted-foreground mb-6 text-xs uppercase tracking-widest">
-                        Use cases
+                        Company
                       </div>
                       <div className="grid grid-cols-2 gap-6">
-                        {useCases.map((useCase, index) => (
+                        {companyLinks.map((company, index) => (
                           <NavigationMenuLink
                             key={index}
-                            href={useCase.href}
+                            href={company.href}
                             className="group flex flex-row items-center gap-5"
                           >
                             <div className="group-hover:opacity-60">
-                              <useCase.icon
-                                className="size-4 text-black"
-                                strokeWidth={1}
-                              />
+                              
                             </div>
-                            <div className="text-base">{useCase.title}</div>
+                            <div className="text-base">{company.title}</div>
                           </NavigationMenuLink>
                         ))}
                       </div>
@@ -269,7 +202,7 @@ const Navbar = () => {
                       <div className="border-input bg-background flex h-full rounded-lg border p-0 hover:bg-transparent">
                         <div className="w-2/5 max-w-[310px] shrink-0 overflow-clip rounded-bl-lg rounded-tl-lg">
                           <img
-                            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                            src="/codeSection3.png"
                             alt="Placeholder image"
                             className="h-full w-full object-cover object-center"
                           />
@@ -294,26 +227,26 @@ const Navbar = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Developers</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-white/70">Documentation</NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-8 lg:p-12 2xl:min-w-[calc(1400px-4rem)]">
                   <div className="flex justify-between gap-8 lg:gap-x-12">
                     <div className="w-1/3 max-w-[404px]">
-                      <div className="text-muted-foreground mb-4 text-xs uppercase tracking-widest">
+                      <div className=" mb-4 text-xs uppercase tracking-widest text-white/70">
                         Documentation
                       </div>
                       <div className="text-muted-foreground mb-6 text-sm font-normal">
                         Call to action for developers
                       </div>
                       <div className="-ml-2.5 space-y-2.5">
-                        {documentationLinks.map((documentationLink, index) => (
+                        {docsLinks.map((docsLink, index) => (
                           <NavigationMenuLink
                             key={index}
-                            href={documentationLink.href}
+                            href={docsLink.href}
                             className="focus:text-accent-foreground group flex flex-row items-center gap-2.5 rounded-md p-2.5"
                           >
                             <ArrowUpRight className="size-4" />
                             <div className="text-base">
-                              {documentationLink.title}
+                              {docsLink.title}
                             </div>
                           </NavigationMenuLink>
                         ))}
@@ -333,7 +266,7 @@ const Navbar = () => {
                         </div>
                         <div className="h-[154px] max-w-[264px] shrink-0">
                           <img
-                            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                            src="/CodeSection2.png"
                             alt="Placeholder image"
                             className="h-full w-full object-cover object-center"
                           />
@@ -354,7 +287,7 @@ const Navbar = () => {
                         </div>
                         <div className="h-[154px] max-w-[264px] shrink-0">
                           <img
-                            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                            src="codeSection3.png"
                             alt="Placeholder image"
                             className="h-full w-full object-cover object-center"
                           />
@@ -365,7 +298,7 @@ const Navbar = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-white/70">Resources</NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-8 lg:p-12 2xl:min-w-[calc(1400px-4rem)]">
                   <div className="flex gap-8 lg:gap-12">
                     <div className="flex flex-1 flex-col">
@@ -383,9 +316,7 @@ const Navbar = () => {
                               <div className="mb-2 text-base">
                                 {resource.title}
                               </div>
-                              <div className="text-muted-foreground text-sm font-normal">
-                                {resource.description}
-                              </div>
+                              
                             </div>
                           </NavigationMenuLink>
                         ))}
@@ -408,7 +339,7 @@ const Navbar = () => {
                         </div>
                         <div className="w-1/3 max-w-[130px] shrink-0">
                           <img
-                            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                            src="/codeSection.png"
                             alt="Placeholder image"
                             className="h-full w-full object-cover object-center"
                           />
@@ -429,10 +360,10 @@ const Navbar = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
             <div className="hidden items-center gap-2 lg:flex">
-              <Button variant="ghost">Login</Button>
-              <Button variant="outline">
-                Start now
-                <ChevronRight className="size-4" />
+              <Button className="text-white/70" variant="ghost">Sign in</Button>
+              <Button  className="rounded-2xl bg-stone-800 py-5 hover:bg-white hover:text-black" variant="outline">
+                Get Started
+            
               </Button>
             </div>
             <div className="flex items-center gap-4 lg:hidden">
@@ -462,7 +393,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   className="border-border flex w-full items-center border-b px-8 py-7 text-left"
-                  onClick={() => setSubmenu("platform")}
+                  onClick={() => setSubmenu("features")}
                 >
                   <span className="flex-1">Platform</span>
                   <span className="shrink-0">
@@ -472,7 +403,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   className="border-border flex w-full items-center border-b px-8 py-7 text-left"
-                  onClick={() => setSubmenu("usecases")}
+                  onClick={() => setSubmenu("companyLinks")}
                 >
                   <span className="flex-1">Use cases</span>
                   <span className="shrink-0">
@@ -511,12 +442,12 @@ const Navbar = () => {
             </div>
           )}
           {/* Mobile Menu > Platform */}
-          {open && submenu === "platform" && (
+          {open && submenu === "features" && (
             <div className="border-border bg-background fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll border-t lg:hidden">
               <a href="#" className="block space-y-6 px-8 py-8">
                 <div className="w-full overflow-clip rounded-lg">
                   <img
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                    src="/CodeSection2.png"
                     alt="Placeholder image"
                     className="aspect-2/1 h-full w-full object-cover object-center"
                   />
@@ -529,22 +460,22 @@ const Navbar = () => {
                 </div>
               </a>
               <div className="text-muted-foreground px-8 py-3.5 text-xs uppercase tracking-widest">
-                Solutions
+                Features
               </div>
               <div className="border-border border-t pb-16">
-                {solutions.map((solution, index) => (
+                 {features.map((feature, index) => (
                   <a
                     key={index}
-                    href={solution.href}
+                    href={feature.href}
                     className="border-border hover:bg-accent group flex w-full items-start gap-x-4 border-b px-8 py-7 text-left"
                   >
                     <div className="shrink-0">
-                      <solution.icon className="size-6" />
+                      <feature.icon className="size-6" />
                     </div>
                     <div>
-                      <div className="mb-1.5 text-base">{solution.title}</div>
+                      <div className="mb-1.5 text-base">{feature.title}</div>
                       <div className="text-muted-foreground text-sm font-normal">
-                        {solution.description}
+                        {feature.description}
                       </div>
                     </div>
                   </a>
@@ -553,22 +484,22 @@ const Navbar = () => {
             </div>
           )}
           {/* Mobile Menu > Use cases */}
-          {open && submenu === "usecases" && (
+          {open && submenu === "companyLinks" && (
             <div className="bg-background fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll lg:hidden">
               <div className="text-muted-foreground px-8 py-3.5 text-xs uppercase tracking-widest">
                 Use cases
               </div>
               <div>
-                {useCases.map((useCase, index) => (
+                {companyLinks.map((company, index) => (
                   <a
                     key={index}
-                    href={useCase.href}
+                    href={company.href}
                     className="border-border hover:bg-accent group flex w-full items-start gap-x-4 border-t px-8 py-7 text-left"
                   >
                     <div className="shrink-0">
-                      <useCase.icon className="size-6" />
+                    
                     </div>
-                    <div className="text-base">{useCase.title}</div>
+                    <div className="text-base">{company.title}</div>
                   </a>
                 ))}
               </div>
@@ -579,7 +510,7 @@ const Navbar = () => {
                 <a href="#" className="block space-y-6">
                   <div className="overflow-clip rounded-lg">
                     <img
-                      src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                      src="/codeSection.png"
                       alt="Placeholder image"
                       className="aspect-2/1 h-full w-full object-cover object-center"
                     />
@@ -603,7 +534,7 @@ const Navbar = () => {
               <a href="#" className="block space-y-6 px-8 py-8">
                 <div className="w-full overflow-clip rounded-lg">
                   <img
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                    src="/codeSection3.png"
                     alt="Placeholder image"
                     className="aspect-2/1 h-full w-full object-cover object-center"
                   />
@@ -622,7 +553,7 @@ const Navbar = () => {
               >
                 <div className="w-full overflow-clip rounded-lg">
                   <img
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                    src="/CodeSection2.png"
                     alt="Placeholder image"
                     className="aspect-2/1 h-full w-full object-cover object-center"
                   />
@@ -639,16 +570,16 @@ const Navbar = () => {
                 Documentation
               </div>
               <div className="-mx-2.5 space-y-2.5 px-8 pb-16">
-                {documentationLinks.map((documentationLink, index) => (
+                {docsLinks.map((docsLink, index) => (
                   <NavigationMenuLink
                     key={index}
-                    href={documentationLink.href}
+                    href={docsLink.href}
                     className="py-[18px]focus:text-accent-foreground group flex flex-row items-center gap-2.5 rounded-md px-2.5"
                   >
                     <div className="flex size-5 items-center justify-center rounded">
                       <ArrowUpRight className="size-3" />
                     </div>
-                    <div className="text-sm">{documentationLink.title}</div>
+                    <div className="text-sm">{docsLink.title}</div>
                   </NavigationMenuLink>
                 ))}
               </div>
@@ -669,9 +600,7 @@ const Navbar = () => {
                   >
                     <div>
                       <div className="mb-1.5 text-base">{resource.title}</div>
-                      <div className="text-muted-foreground text-sm font-normal">
-                        {resource.description}
-                      </div>
+                      
                     </div>
                   </a>
                 ))}
@@ -683,7 +612,7 @@ const Navbar = () => {
                 <a href="#" className="block space-y-6">
                   <div className="overflow-clip rounded-lg">
                     <img
-                      src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                      src="/CodeSection2.png"
                       alt="Placeholder image"
                       className="aspect-2/1 h-full w-full object-cover object-center"
                     />

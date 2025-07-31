@@ -1,9 +1,9 @@
 import { CodeSection } from "@/components/CodeSection";
 import { CtaSection } from "@/components/CtaSection";
 import { FeatureSection } from "@/components/FeatureSection";
-import { FeatureSection2 } from "@/components/FeatureSection2";
+import { CodeSection2 } from "@/components/CodeSection2";
 import { FeatureSection3 } from "@/components/FeatureSection3";
-import { FeatureSection4 } from "@/components/FeatureSection4";
+import { CodeSection3 } from "@/components/CodeSection3";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { LogosSection } from "@/components/LogosSection";
@@ -13,18 +13,18 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
+    <div className="max-w-6xl mx-auto">
      <HeroSection />
      <LogosSection />
      <CodeSection />
      <FeatureSection />
-     <FeatureSection2 />
+     <CodeSection2 />
      <FeatureSection3/>
      <TestimonialSection />
-     <FeatureSection4 />
+     <CodeSection3 />
      <TestimonialSection2 />
      <CtaSection />
      <Footer />
-    </>
+    </div>
   )
 }

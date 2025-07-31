@@ -33,7 +33,7 @@ const LogosSection = () => {
   const bottomRowCompanies = [
     {
       name: "Perplexity",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/mainline/logos/perplexity.svg",
+      logo: "https://html.tailus.io/blocks/customers/nvidia.svg",
       width: 141,
       height: 32,
       href: "https://perplexity.com",
@@ -70,29 +70,31 @@ const LogosSection = () => {
 
   return (
     <section className="py-32">
-      <div className="container space-y-10 lg:space-y-16">
+      <div className="container space-y-10 lg:space-y-16 border-t-2 rounded-4xl shadow-black/10 px-20 py-8">
         <div className="text-center">
-          <h2 className="mb-4 text-xl font-bold text-balance md:text-2xl lg:text-3xl">
-            Powering the world's best product teams.
+          <p className=" text-xl font-semibold text-balance md:text-xl lg:text-xl ">
+          
             <br className="max-md:hidden" />
-            <span className="text-muted-foreground">
-              From next-gen startups to established enterprises.
+            <span className="text-muted-foreground mb-18">
+              Companies of all sizes trust MailTea <br className="max-md:hidden" /> to deliver their most important emails.
             </span>
-          </h2>
+          </p>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-8 mt-20 ">
           {/* Top row - 4 logos */}
-          <div className="grid grid-cols-2 items-center justify-items-center gap-x-12 gap-y-8 max-md:w-full sm:grid-cols-4 md:gap-x-20 lg:gap-x-28">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-x-12 gap-y-8 max-md:w-full sm:grid-cols-4 md:gap-x-20 lg:gap-x-28 px-20">
             {topRowCompanies.map((company, index) => (
               <a href={company.href} target="_blank" key={index}>
+                <div className=" justify-center backdrop-blur-md rounded-lg h-10 px-1 py-1">
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
                   width={company.width}
                   height={company.height}
-                  className="object-contain transition-opacity hover:opacity-70"
+                  className="object-contain transition-opacity invert hover:opacity-70"
                 />
+                </div>
               </a>
             ))}
           </div>
@@ -101,13 +103,14 @@ const LogosSection = () => {
           <div className="grid grid-cols-2 items-center justify-items-center gap-x-12 gap-y-8 max-md:w-full sm:grid-cols-5 md:gap-x-20 lg:gap-x-28">
             {bottomRowCompanies.map((company, index) => (
               <a href={company.href} target="_blank" key={index}>
-                <img
+               <div className=" "> <img
                   src={company.logo}
                   alt={`${company.name} logo`}
                   width={company.width}
                   height={company.height}
-                  className="object-contain transition-opacity hover:opacity-70"
+                  className="object-contain justify-center  invert"
                 />
+                </div>
               </a>
             ))}
           </div>

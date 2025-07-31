@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 interface Hero1Props {
-  badge?: string;
   heading?: string;
   description?: string;
   buttons?: {
@@ -24,63 +23,64 @@ interface Hero1Props {
 }
 
 const HeroSection = ({
-  badge = "✨ Your Website Builder",
-  heading = "Blocks Built With Shadcn & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
+  heading = "Email for developers",
+  description = "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
   buttons = {
     primary: {
-      text: "Discover all components",
-      url: "https://www.shadcnblocks.com",
+      text: "Get Started",
+      url: "/signup",
     },
     secondary: {
-      text: "View on GitHub",
-      url: "https://www.shadcnblocks.com",
+      text: "Documentation",
+      url: "/docs",
     },
   },
   image = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
+    src: "https://cdn.cosmos.so/e6ead8ce-c834-4a03-addc-59664984b88a.mp4",
     alt: "Hero section demo image showing interface components",
   },
 }: Hero1Props) => {
   return (
     <section className="py-32">
       <div className="container">
-        <div className="grid items-center gap-8 lg:grid-cols-2">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            {badge && (
-              <Badge variant="outline">
-                {badge}
-                <ArrowUpRight className="ml-2 size-4" />
-              </Badge>
-            )}
-            <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
+        <div className="grid items-center gap-3 lg:grid-cols-2">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-1 pr-6">
+            
+          
+            <h1 className="my-5 text-pretty text-6xl font-medium lg:text-8xl">
               {heading}
             </h1>
-            <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
+            <p className="text-white/60 mb-8 max-w-xl lg:text-[17px]">
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (
-                <Button asChild className="w-full sm:w-auto">
+                <Button asChild className="w-full sm:w-auto text-md bg-stone-800 rounded-2xl text-white/90 py-5 hover:bg-white hover:text-black" variant= "outline">
                   <a href={buttons.primary.url}>{buttons.primary.text}</a>
                 </Button>
               )}
               {buttons.secondary && (
-                <Button asChild variant="outline" className="w-full sm:w-auto">
+                <Button asChild className="w-full sm:w-auto text-white/60 bg-accent text-md hover:bg-accent hover:text-white/300">
                   <a href={buttons.secondary.url}>
                     {buttons.secondary.text}
-                    <ArrowRight className="size-4" />
+                    
                   </a>
                 </Button>
               )}
             </div>
           </div>
-          <img
+
+          <div className="oveflow-hidden -mt-2">
+          <video
             src={image.src}
-            alt={image.alt}
-            className="max-h-96 w-full rounded-md object-cover"
+            autoPlay
+            muted 
+            loop
+            className=" h-[600px] w-full rounded-md object-cover mb-0"
           />
+          </div>
         </div>
+
       </div>
     </section>
   );

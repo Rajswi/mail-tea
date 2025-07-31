@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 interface CtaSectionProps {
   heading?: string;
@@ -16,11 +17,11 @@ interface CtaSectionProps {
 }
 
 const CtaSection = ({
-  heading = "Call to Action",
-  description = "Build faster with our collection of pre-built blocks. Speed up your development and ship features in record time.",
+  heading = "Email reimagined.",
+  description = "Available today.",
   buttons = {
     primary: {
-      text: "Buy Now",
+      text: "Get Started",
       url: "https://www.shadcnblocks.com",
     },
     secondary: {
@@ -30,34 +31,49 @@ const CtaSection = ({
   },
 }: CtaSectionProps) => {
   return (
-    <section className="py-32">
+    <section className="pb-16 pt-14">
       <div className="container">
-        <div className="bg-accent rounded-lg p-8 md:rounded-xl lg:p-12">
-          <div className="mx-auto max-w-4xl text-center">
-            <h3 className="mb-4 text-3xl font-semibold md:text-5xl lg:mb-6 lg:text-6xl">
+        <div className=" relative overflow-hidden  bg-accent rounded-lg p-8 md:rounded-xl ">
+          <div className="relative z-10 mx-auto text-white/90 max-w-4xl text-center">
+            <h3 className="mb-4 text-3xl font-medium md:text-5xl lg:mb-0 lg:text-6xl">
               {heading}
             </h3>
-            <p className="text-muted-foreground mb-8 text-lg font-medium lg:text-xl">
+             <h3 className="mb-4 text-3xl font-medium md:text-5xl lg:mb-6 lg:text-6xl">
               {description}
-            </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+            </h3>
+            <div className="flex flex-col mt-12 justify-center gap-3 sm:flex-row sm:gap-4">
               {buttons.primary && (
-                <Button size="lg" className="w-full sm:w-auto" asChild>
-                  <a href={buttons.primary.url}>{buttons.primary.text}</a>
+                <Button size="lg" className="w-full sm:w-auto text-sm bg-stone-900 rounded-xl text-white/90 py-5 hover:bg-white hover:text-black" variant= "outline" asChild>
+                  <a href={buttons.primary.url}>{buttons.primary.text}
+                    <ArrowRight />
+                  </a>
                 </Button>
               )}
               {buttons.secondary && (
                 <Button
-                  variant="outline"
+                 
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto text-white/60 bg-accent text-sm hover:bg-accent hover:text-white/300"
                   asChild
                 >
-                  <a href={buttons.secondary.url}>{buttons.secondary.text}</a>
+                  <a href={buttons.secondary.url}>{buttons.secondary.text}
+                    <ArrowRight />
+                  </a>
                 </Button>
               )}
             </div>
           </div>
+
+          <div
+            aria-hidden="true"
+            className=" max-w-9xl mx-auto absolute inset-0 z-0 flex items-center
+             justify-center border-b border-b-white/5 rounded-2xl shadow-white"
+          >
+            <p className="pointer-events-none select-none text-[20rem] font-bold -mb-20  text-white/5">
+              MailTea
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
