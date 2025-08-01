@@ -37,7 +37,7 @@ const CodeSection3 = () => {
                 </p>
             </div>
 
-            <img src="/CodeSection3.png"></img>
+            <img src="/codeSection3.png"></img>
           </div>
         </div>
       </div>
