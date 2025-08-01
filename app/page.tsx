@@ -13,7 +13,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="w-full overflow-hidden">
+    <div className="max-w-6xl  mx-auto">
      <HeroSection />
      <LogosSection />
      <CodeSection />
@@ -25,6 +26,6 @@ export default function Home() {
      <TestimonialSection2 />
      <CtaSection />
      <Footer />
-    </div>
+    </div></div>
   )
 }

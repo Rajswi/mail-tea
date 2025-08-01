@@ -1,7 +1,9 @@
+
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Spline from '@splinetool/react-spline/next';
 
 interface Hero1Props {
   heading?: string;
@@ -41,7 +43,7 @@ const HeroSection = ({
   },
 }: Hero1Props) => {
   return (
-    <section className="py-32">
+    <section className="py-32 w">
       <div className="container">
         <div className="grid items-center gap-3 lg:grid-cols-2">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-1 pr-6">
@@ -70,14 +72,24 @@ const HeroSection = ({
             </div>
           </div>
 
-          <div className="oveflow-hidden -mt-2">
-          <video
+          <div className="oveflow-hidden  -mt-2">
+          {/* <video
             src={image.src}
             autoPlay
             muted 
             loop
             className=" h-[600px] w-full rounded-md object-cover mb-0"
-          />
+          /> */}
+          
+
+
+      <Spline
+        scene="https://prod.spline.design/vWWEYPHbqEJWdqIb/scene.splinecode" 
+        // className="w-96 h-96"
+        style={{width:"900px"}} className="-pl-16"
+      />
+    
+  
           </div>
         </div>
 
